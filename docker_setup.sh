@@ -5,10 +5,12 @@ systemctl start docker.service
 docker pull 'debian:jessie'
 docker build --tag 'database/mysql' '/vagrant/mysql'
 
-export DBMS_IP=163.108.53.10
+DBMS_IP=163.108.53.10
 sysctl -w net.ipv4.ip_forward=1
 ip link add dbms_server type dummy
 ip addr add $DBMS_IP/8 dev dbms_server
+
+echo "export DBMS_IP=163.108.53.10" >> /home/vagrant/.bashrc
 
 docker run \
 			 --name 'mysql_data' \

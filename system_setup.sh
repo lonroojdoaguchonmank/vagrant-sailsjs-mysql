@@ -82,3 +82,15 @@ do
 				false
 		fi
 done
+
+read -r -d '' USER_CONFIG << 'EOF'
+# set PATH to include $HOME bin directory
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+export TERM=xterm
+export PS1='\n\[\e[1;34m\][\d:\t]:\[\e[m\]\w/]:->\n\[\e[0;32m\]\u@\H\[\e[m\]:\[\e[0;31m\]$\[\e[m\] '
+EOF
+
+echo "$USER_CONFIG" > /home/vagrant/.bashrc
