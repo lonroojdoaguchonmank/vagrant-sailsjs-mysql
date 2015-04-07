@@ -18,6 +18,7 @@ VirtualBox Extention Pack
 
 To get started execute the following in a terminal.
 
+git clone https://github.com/lonroojdoaguchonmank/vagrant-sailsjs-mysql
 vagrant box add minimal/jessie64
 vagrant up
 vagrant ssh
